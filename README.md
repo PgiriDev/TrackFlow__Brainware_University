@@ -15,12 +15,22 @@
   </p>
 
   <p align="center">
-    <a href="#-quick-start"><img src="https://img.shields.io/badge/Quick%20Start-Ready-10b981?style=for-the-badge&logo=rocket&logoColor=white" alt="Quick Start" /></a>
-    <img src="https://img.shields.io/badge/PHP-8.2+-4B53BC?style=for-the-badge&logo=php&logoColor=white" alt="PHP 8.2+" />
-    <img src="https://img.shields.io/badge/Laravel-12.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel 12" />
-    <img src="https://img.shields.io/badge/Vite-7.x-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite 7" />
-    <img src="https://img.shields.io/badge/License-MIT-0f766e?style=for-the-badge" alt="License MIT" />
-  </p>
+  <a href="https://trackflow.mooo.com">
+    <img src="https://img.shields.io/badge/Live%20Demo-Visit-10b981?style=for-the-badge&logo=vercel&logoColor=white" />
+  </a>
+
+  <a href="#-quick-start">
+    <img src="https://img.shields.io/badge/Quick%20Start-Ready-10b981?style=for-the-badge&logo=rocket&logoColor=white" />
+  </a>
+
+  <img src="https://img.shields.io/github/stars/PgiriDev/TrackFlow_Brainware_University?style=for-the-badge" />
+  <img src="https://img.shields.io/github/last-commit/PgiriDev/TrackFlow_Brainware_University?style=for-the-badge" />
+
+  <img src="https://img.shields.io/badge/PHP-8.2+-4B53BC?style=for-the-badge&logo=php&logoColor=white" />
+  <img src="https://img.shields.io/badge/Laravel-12.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" />
+  <img src="https://img.shields.io/badge/Vite-7.x-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+  <img src="https://img.shields.io/badge/License-MIT-0f766e?style=for-the-badge" />
+</p>
 </div>
 
 ---
