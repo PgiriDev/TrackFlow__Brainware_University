@@ -11,43 +11,53 @@ return new class extends Migration {
     public function up(): void
     {
         // Polls table
-        Schema::create('community_polls', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('post_id')->unique();
-            $table->string('question');
-            $table->boolean('multiple_choice')->default(false);
-            $table->timestamp('ends_at')->nullable();
-            $table->timestamps();
-
-            $table->foreign('post_id')->references('id')->on('community_posts')->onDelete('cascade');
-        });
+        if (!Schema::hasTable('community_polls')) {
+            Schema::create('community_polls', function (Blueprint $table) {
+                $table->id();
+                $table->unsignedBigInteger('post_id')->unique();
+                $table->string('question');
+                $table->boolean('multiple_choice')->default(false);
+                $table->timestamp('ends_at')->nullable();
+                $table->timestamps();
+            });
+        }
 
         // Poll options table
-        Schema::create('community_poll_options', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('poll_id');
-            $table->string('option_text');
-            $table->unsignedInteger('votes_count')->default(0);
-            $table->timestamps();
+        if (!Schema::hasTable('community_poll_options')) {
+            Schema::create('community_poll_options', function (Blueprint $table) {
+                $table->id();
+                $table->unsignedBigInteger('poll_id');
+                $table->string('option_text');
+                $table->unsignedInteger('votes_count')->default(0);
+                $table->timestamps();
 
-            $table->foreign('poll_id')->references('id')->on('community_polls')->onDelete('cascade');
-        });
+                $table->foreign('poll_id')->references('id')->on('community_polls')->onDelete('cascade');
+            });
+        }
 
         // Poll votes table
-        Schema::create('community_poll_votes', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('poll_id');
-            $table->unsignedBigInteger('option_id');
-            $table->unsignedBigInteger('user_id');
-            $table->timestamps();
+        if (!Schema::hasTable('community_poll_votes')) {
+            Schema::create('community_poll_votes', function (Blueprint $table) {
+                $table->id();
+                $table->unsignedBigInteger('poll_id');
+                $table->unsignedBigInteger('option_id');
+                $table->unsignedBigInteger('user_id');
+                $table->timestamps();
 
-            $table->foreign('poll_id')->references('id')->on('community_polls')->onDelete('cascade');
-            $table->foreign('option_id')->references('id')->on('community_poll_options')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+                $table->foreign('poll_id')->references('id')->on('community_polls')->onDelete('cascade');
+                $table->foreign('option_id')->references('id')->on('community_poll_options')->onDelete('cascade');
+                $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-            // User can only vote once per poll (for single choice) or once per option (for multiple choice)
-            $table->unique(['poll_id', 'option_id', 'user_id']);
-        });
+                // User can only vote once per poll (for single choice) or once per option (for multiple choice)
+                $table->unique(['poll_id', 'option_id', 'user_id']);
+            });
+        }
+
+        if (Schema::hasTable('community_posts')) {
+            Schema::table('community_polls', function (Blueprint $table) {
+                $table->foreign('post_id')->references('id')->on('community_posts')->onDelete('cascade');
+            });
+        }
     }
 
     /**
