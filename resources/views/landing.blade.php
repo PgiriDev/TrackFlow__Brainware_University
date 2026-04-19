@@ -939,7 +939,7 @@
                             </div>
                         </div>
 
-                        <div class="flex items-start gap-3 sm:gap-4">
+                        <!-- <div class="flex items-start gap-3 sm:gap-4">
                             <div
                                 class="w-10 h-10 sm:w-12 sm:h-12 gradient-bg rounded-lg flex items-center justify-center flex-shrink-0">
                                 <i class="fas fa-phone text-white text-base sm:text-xl"></i>
@@ -949,7 +949,7 @@
                                 <p class="text-gray-300 text-xs sm:text-sm md:text-base">+91 8653021830<br>Mon-Fri, 9AM
                                     - 6PM IST</p>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="flex items-start gap-3 sm:gap-4">
                             <div
