@@ -1,7 +1,7 @@
 ﻿<div align="center">
   <br />
   <a href="https://trackflow.mooo.com" target="_blank">
-    <img src="public/trackflow-main/logo.png" alt="TrackFlow Logo" width="120" style="filter: drop-shadow(0px 4px 6px rgba(255,255,255,0.1));" />
+    <img src="public/trackflow-main/logo.png" alt="TrackFlow Logo" width="120" />
   </a>
   
   <br />
@@ -15,46 +15,38 @@
   </p>
 
   <p align="center">
-    <a href="#quick-start"><img src="https://img.shields.io/badge/Quick%20Start-Ready-10b981?style=for-the-badge&logo=rocket&logoColor=white" alt="Quick Start" /></a>
+    <a href="#-quick-start"><img src="https://img.shields.io/badge/Quick%20Start-Ready-10b981?style=for-the-badge&logo=rocket&logoColor=white" alt="Quick Start" /></a>
     <img src="https://img.shields.io/badge/PHP-8.2+-4B53BC?style=for-the-badge&logo=php&logoColor=white" alt="PHP 8.2+" />
     <img src="https://img.shields.io/badge/Laravel-12.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel 12" />
     <img src="https://img.shields.io/badge/Vite-7.x-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite 7" />
     <img src="https://img.shields.io/badge/License-MIT-0f766e?style=for-the-badge" alt="License MIT" />
   </p>
-
-  <h4>
-    <a href="https://trackflow.mooo.com">Live Demo</a>
-    <span> · </span>
-    <a href="#core-features">Features</a>
-    <span> · </span>
-    <a href="#quick-start">Quick Start</a>
-  </h4>
 </div>
 
-<br />
-<hr />
-<br />
+---
 
 ## ✨ Why TrackFlow?
 
 **TrackFlow** is a modern finance platform that helps users manage money with absolute clarity and speed. It combines daily transaction tracking with budgeting, goals, reports, group expense workflows, and high-level account security into one beautiful, responsive web experience.
 
-<br />
+> **🌍 Live Demo:** [https://trackflow.mooo.com](https://trackflow.mooo.com)
+
+---
 
 ## 🚀 Core Features
 
 <table>
   <tr>
     <td width="50%" valign="top">
-      <h3><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Icons/master/Icons/Commerce/Money.svg" width="30" align="absmiddle" /> Expense Management</h3>
+      <h3><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f4b8/512.gif" width="30" align="absmiddle" /> Expense Management</h3>
       <ul>
-        <li>Add, edit, categorize, and search transactions in milliseconds.</li>
+        <li>Add, edit, categorize, and search transactions instantly.</li>
         <li>Track inflow and outflow with clean historical records.</li>
         <li>Built for fast, frictionless everyday usage.</li>
       </ul>
     </td>
     <td width="50%" valign="top">
-      <h3><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Icons/master/Icons/Data%20&%20Analytics/Pie%20Chart.svg" width="30" align="absmiddle" /> Budget Planning</h3>
+      <h3><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f4b0/512.gif" width="30" align="absmiddle" /> Budget Planning</h3>
       <ul>
         <li>Create monthly or custom timeframe budgets.</li>
         <li>Define budget items and monitor spent vs. remaining.</li>
@@ -64,7 +56,7 @@
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h3><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Icons/master/Icons/Objects/Target.svg" width="30" align="absmiddle" /> Financial Goals</h3>
+      <h3><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f3af/512.gif" width="30" align="absmiddle" /> Financial Goals</h3>
       <ul>
         <li>Create savings goals with target amounts and timelines.</li>
         <li>Track progress automatically.</li>
@@ -72,7 +64,7 @@
       </ul>
     </td>
     <td width="50%" valign="top">
-      <h3><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Icons/master/Icons/Data%20&%20Analytics/Bar%20Chart%204.svg" width="30" align="absmiddle" /> Reports & Analytics</h3>
+      <h3><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f4ca/512.gif" width="30" align="absmiddle" /> Reports & Analytics</h3>
       <ul>
         <li>Analyze financial performance with interactive charts.</li>
         <li>Review category-wise and period-wise spending behavior.</li>
@@ -82,7 +74,7 @@
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h3><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Icons/master/Icons/People/People%20Audience.svg" width="30" align="absmiddle" /> Group Expense Workflow</h3>
+      <h3><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f465/512.gif" width="30" align="absmiddle" /> Group Expense Workflow</h3>
       <ul>
         <li>Manage shared spending effortlessly.</li>
         <li>Track requests, payments, and settlement statuses.</li>
@@ -90,7 +82,7 @@
       </ul>
     </td>
     <td width="50%" valign="top">
-      <h3><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Icons/master/Icons/Security/Shield%20Keyhole.svg" width="30" align="absmiddle" /> Auth & Security</h3>
+      <h3><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f510/512.gif" width="30" align="absmiddle" /> Auth & Security</h3>
       <ul>
         <li>Frictionless Google OAuth login support.</li>
         <li>Optional 2FA support for premium security.</li>
@@ -100,22 +92,21 @@
   </tr>
 </table>
 
-<br />
+---
 
 ## 📱 PWA App Experience
 
 TrackFlow isn't just a website; it works as a fully installable **Progressive Web App (PWA)**. Users can add it directly to their home screens for a native app feel.
 
-> **Why users love it:**
-> * **One-tap access:** Install prompt on supported browsers.
-> * **Standalone UI:** App-like experience without the browser clutter.
-> * **Speed:** Faster revisit experience with cached static assets.
-> * **Reliability:** Offline fallback support when the network drops.
+* **One-tap access:** Install prompt on supported browsers.
+* **Standalone UI:** App-like experience without the browser clutter.
+* **Speed:** Faster revisit experience with cached static assets.
+* **Reliability:** Offline fallback support when the network drops.
 
-**Technical Implementation:**
-`Web App Manifest` • `Service Worker` • `PWA Install Script` • `Offline Fallback`
+> **Technical Implementation:**
+> `Web App Manifest` • `Service Worker` • `PWA Install Script` • `Offline Fallback`
 
-<br />
+---
 
 ## 💻 Tech Stack
 
@@ -128,12 +119,12 @@ TrackFlow isn't just a website; it works as a fully installable **Progressive We
   <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
 </div>
 
-<br />
+---
 
 ## 🖼 Visual Showcase
 
 <p align="center">
-  <img src="public/img/dashboard.png" alt="Dashboard" width="100%" style="border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.2);" />
+  <img src="public/img/dashboard.png" alt="Dashboard" width="100%" />
 </p>
 
 | Expense Tracking | Budgets |
@@ -148,7 +139,7 @@ TrackFlow isn't just a website; it works as a fully installable **Progressive We
 | :---: | :---: |
 | <img src="public/img/groupexpense.png" alt="Group Expense" width="100%" /> | <img src="public/img/notifications.png" alt="Notifications" width="100%" /> |
 
-<br />
+---
 
 ## 🛠 Quick Start
 
@@ -156,7 +147,7 @@ TrackFlow isn't just a website; it works as a fully installable **Progressive We
 * **PHP:** 8.2+
 * **Node.js:** 18+
 * **Database:** MySQL 8+
-* **Package Managers:** Composer & NPM
+* **Tools:** Composer & NPM
 
 ### Installation
 
@@ -180,6 +171,7 @@ php artisan migrate
 npm run build
 php artisan serve
 
+
 Open http://127.0.0.1:8000 in your browser.
 
 ⚙️ Production Notes & OAuth Setup
@@ -193,7 +185,7 @@ Rebuild caches on every deploy:
 Bash
 php artisan optimize
 Google OAuth Setup
-Callback route used by app: /auth/google/callback
+Callback Route: /auth/google/callback
 
 Add this exact callback URL in your Google Cloud Console OAuth credentials.
 
@@ -203,8 +195,6 @@ TrackFlow/
 ├── app/                # Controllers, Models, Services, Jobs
 ├── config/             # App and service configuration
 ├── database/           # Migrations, seeders, factories
-├── public/             # Public assets and images (Manifest, Service Worker)
-├── resources/views/    # Blade views (auth, dashboard, settings, landing)
+├── public/             # Public assets and images (Manifest, SW)
+├── resources/views/    # Blade views (auth, dashboard, landing)
 └── routes/             # Web and API routes
-
-<p align="center"><strong>TrackFlow</strong> - Finance clarity for everyday users and teams.</p>
