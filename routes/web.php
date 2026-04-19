@@ -587,7 +587,7 @@ Route::get('/auth/{provider}/redirect', function ($provider) {
     // Prefer the explicit redirect configured in config/services.php (via env).
     $request = request();
     $configuredRedirect = config("services.{$provider}.redirect");
-    $fallbackRedirect = $request->getSchemeAndHttpHost() . '/auth/' . $provider . '/callback';
+    $fallbackRedirect = 'https://trackflow.mooo.com/auth/' . $provider . '/callback';
     $redirectUrl = $configuredRedirect ?: $fallbackRedirect;
 
     // If caller requested a preview, return the provider redirect URL as JSON instead of redirecting.
