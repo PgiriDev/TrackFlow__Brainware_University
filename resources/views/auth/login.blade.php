@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Login - TrackFlow</title>
     <link rel="icon" type="image/png" href="{{ asset('trackflow-main/fav-icon.png') }}">
+    @include('partials.pwa-head')
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -365,6 +366,7 @@
             btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i><span>Signing in...</span>';
         });
     </script>
+    @include('partials.pwa-install-prompt')
 </body>
 
 </html>

@@ -1,0 +1,23 @@
+{
+  "name": "TrackFlow",
+  "short_name": "TrackFlow",
+  "description": "TrackFlow - Smart Financial Management",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/trackflow-main/fav-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/trackflow-main/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

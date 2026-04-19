@@ -10,16 +10,21 @@
     <link rel="icon" type="image/png" href="/trackflow-main/fav-icon.png">
     <link rel="shortcut icon" type="image/png" href="/trackflow-main/fav-icon.png">
     <link rel="apple-touch-icon" href="/trackflow-main/fav-icon.png">
+    @include('partials.pwa-head')
 
     <!-- Theme initialization script - runs immediately to prevent flash -->
     <script>
         (function () {
             @php
-                // Get theme from database if user is logged in
+                // Cache user theme in session to avoid repeat DB reads on every request.
                 $savedTheme = 'light';
                 if (session('user_id')) {
-                    $userPrefs = DB::table('user_preferences')->where('user_id', session('user_id'))->first();
-                    $savedTheme = $userPrefs->theme ?? 'light';
+                    $savedTheme = session('user_theme');
+                    if ($savedTheme === null) {
+                        $userPrefs = DB::table('user_preferences')->where('user_id', session('user_id'))->first();
+                        $savedTheme = $userPrefs->theme ?? 'light';
+                        session(['user_theme' => $savedTheme]);
+                    }
                 }
             @endphp
 
@@ -172,11 +177,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1" defer></script>
 
     <!-- Cropper.js -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js" defer></script>
 
 
     <!-- face-api.js (for Face Authentication) -->
@@ -2930,6 +2935,7 @@
         })();
     </script>
 
+    @include('partials.pwa-install-prompt')
     {{-- Always include modals section for camera/cropper support --}}
     @yield('modals')
     @stack('scripts')

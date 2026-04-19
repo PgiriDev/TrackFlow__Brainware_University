@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>TrackFlow - Smart Financial Management</title>
     <link rel="icon" type="image/png" href="{{ asset('trackflow-main/fav-icon.png') }}">
+    @include('partials.pwa-head')
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -1585,6 +1586,7 @@
             animation: fade-out 0.3s ease-out;
         }
     </style>
+    @include('partials.pwa-install-prompt')
 </body>
 
 </html>

@@ -1524,7 +1524,7 @@ Route::middleware(['auth.session'])->group(function () {
 
     // Transactions - specific routes must come before resource routes
     Route::delete('transactions/{id}/delete-ajax', [TransactionController::class, 'deleteAjax'])->name('transactions.deleteAjax');
-    Route::resource('transactions', TransactionController::class);
+    Route::resource('transactions', TransactionController::class)->except(['store', 'show', 'update']);
 
     // Budgets - AJAX routes must come before resource routes
     Route::get('budgets/list-ajax', [BudgetController::class, 'listAjax'])->name('budgets.listAjax');
