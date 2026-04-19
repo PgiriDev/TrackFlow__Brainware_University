@@ -959,7 +959,7 @@
                             <div>
                                 <h3 class="font-bold text-white mb-1 text-sm sm:text-base">Email Address</h3>
                                 <p class="text-gray-300 text-xs sm:text-sm md:text-base">
-                                    flowlabs.support@gmail.com<br>info@trackflow.com</p>
+                                    flowlabs.support@gmail.com<br>support@trackflow.com</p>
                             </div>
                         </div>
 
