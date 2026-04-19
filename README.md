@@ -23,8 +23,8 @@
     <img src="https://img.shields.io/badge/Quick%20Start-Ready-10b981?style=for-the-badge&logo=rocket&logoColor=white" />
   </a>
 
-  <img src="https://img.shields.io/github/stars/PgiriDev/TrackFlow_Brainware_University?style=for-the-badge" />
-<img src="https://img.shields.io/github/last-commit/PgiriDev/TrackFlow_Brainware_University?style=for-the-badge" />
+  <img src="https://img.shields.io/github/stars/PgiriDev/TrackFlow__Brainware_University?style=for-the-badge" />
+<img src="https://img.shields.io/github/last-commit/PgiriDev/TrackFlow__Brainware_University?style=for-the-badge" />
 
   <img src="https://img.shields.io/badge/PHP-8.2+-4B53BC?style=for-the-badge&logo=php&logoColor=white" />
   <img src="https://img.shields.io/badge/Laravel-12.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" />
