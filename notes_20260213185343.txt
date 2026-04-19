@@ -1,0 +1,199 @@
+02.13 6:52 PM
+Tuk-tuk
+Item-wise Calculation
+
+নিচে আমি পুরো লজিকটা সহজভাবে বুঝিয়ে দিচ্ছি, যেটা তুমি তোমার কোডে (PHP/Laravel বা JS) ইমপ্লিমেন্ট করতে পারবে।
+মূল লজিক (Core Concept)
+খাতায় আমরা সাধারণত মাসের শেষে মোট খরচকে ৩ দিয়ে ভাগ করি। কিন্তু তোমার অ্যাপে প্রতিটি খরচে দুটি জিনিস দেখতে হবে:
+Payer: টাকাটা কে পকেট থেকে দিয়েছে?
+Consumers: এই জিনিসটা কারা কারা ভোগ করেছে (Share)?
+১. ডেটাবেস বা ডেটা স্ট্রাকচার ডিজাইন (Data Structure)
+তোমাকে মূলত ৩টি টেবিল বা অ্যারে ভাবতে হবে:
+Users: (ধরো ৩ জন: A, B, C)
+Expenses: (কি কেনা হলো, কত দাম, কে কিনল)
+Expense_Splits: (ওই নির্দিষ্ট খরচটা কাদের মধ্যে ভাগ হবে)
+২. ক্যালকুলেশন অ্যালগরিদম (ধাপে ধাপে)
+ধরি, তোমাদের রুমে ৩ জন বন্ধু: Prakash, Rahul, Sumit।
+Scenario ১: চাল কেনা হলো ৩০০ টাকার। সবাই খাবে। (Prakash টাকা দিল)।
+Payer: Prakash (300)
+Consumers: Prakash, Rahul, Sumit.
+Per Head cost: 300 / 3 = 100 টাকা।
+Scenario ২: মাংস কেনা হলো ২০০ টাকার। Sumit বাড়ি গেছে, তাই শুধু Prakash আর Rahul খাবে। (Rahul টাকা দিল)।
+Payer: Rahul (200)
+Consumers: Prakash, Rahul. (Sumit নেই)
+Per Head cost: 200 / 2 = 100 টাকা।
+৩. ফাইনাল হিসাব বের করার নিয়ম (The Formula)
+সফ্টওয়্যার লুপ চালিয়ে প্রতিটি ট্রানজ্যাকশন চেক করবে এবং ৩টি ভেরিয়েবল আপডেট করবে:
+Total Paid (কে কত টাকা ক্যাশ দিয়েছে):
+Prakash: ৩০০ (চালের জন্য)
+Rahul: ২০০ (মাংসের জন্য)
+Sumit: ০
+Total Share Cost (কার আসলে কত খরচ হওয়া উচিত ছিল):
+Prakash: ১০০ (চাল) + ১০০ (মাংস) = ২০০ টাকা
+Rahul: ১০০ (চাল) + ১০০ (মাংস) = ২০০ টাকা
+Sumit: ১০০ (চাল) + ০ (মাংস) = ১০০ টাকা (মাংসের খরচ যোগ হলো না)
+Net Balance (লেনদেন):
+সূত্র: (Total Paid) - (Total Share Cost) = Balance
+Prakash: ৩০০ (দিয়েছে) - ২০০ (খেয়েছে) = +১০০ (সে ১০০ টাকা পাবে)।
+Rahul: ২০০ (দিয়েছে) - ২০০ (খেয়েছে) = ০ (সে কিছুই পাবে না, দেবেও না)।
+Sumit: ০ (দিয়েছে) - ১০০ (খেয়েছে) = -১০০ (তাকে ১০০ টাকা দিতে হবে)।
+রেজাল্ট: Sumit ১০০ টাকা দেবে, আর Prakash সেই ১০০ টাকা পাবে।
+
+
+বিশেষ পরামর্শ (Pro Tips for your Project)
+​চেকবক্স সিস্টেম: যখন কেউ এন্ট্রি করবে "Chicken - 200 Taka", নিচে চেকবক্স রাখবে "Select Members"। ডিফল্ট হিসেবে সবার নামে টিক দেওয়া থাকবে। যদি কেউ না থাকে, তার টিক সরিয়ে দিলেই লজিক অটোমেটিক কাজ করবে (যেমনটা Scenario 2 তে দেখালাম)।
+​রাউন্ড অফ: ভাগের সময় দশমিক আসতে পারে (যেমন ১০০/৩ = ৩৩.৩৩)। কোডে round() বা ceil() ফাংশন ব্যবহার করবে যাতে ১-২ পয়সার গণ্ডগোল না হয়।
+
+
+
+
+
+
+
+
+
+
+
+
+কিন্তু আসল লজিক ইমপ্লিমেন্ট করার জন্য যেখানে ইউজার ইনপুট দেবে (Add Transaction Modal), সেই কোডটি এখানে নেই (হয়তো অন্য কোনো ফাইলে বা নিচে আছে)।
+তবে চিন্তার কিছু নেই। তোমার "Bazar Khata" বা মেসের লজিক দাঁড় করানোর জন্য View (Blade) এবং Controller-এ ঠিক কি কি পরিবর্তন করতে হবে, আমি নিচে স্টেপ-বাই-স্টেপ কোডসহ দিচ্ছি।
+১. Blade ফাইলে পরিবর্তন (Add Transaction Modal)
+তোমার addTransaction মোডালে যেখানে টাকার অঙ্ক বসানো হয়, ঠিক তার নিচে একটি Member Selection সেকশন যোগ করতে হবে। এখানে চেকবক্স থাকবে।
+লজিক: ডিফল্টভাবে সবার নামে টিক (Check) দেওয়া থাকবে। যদি কেউ মিল অফ করে বা না খায়, ইউজার তার টিক উঠিয়ে দেবে।
+নিচে মোডালের ভেতরের প্রয়োজনীয় HTML কোড দিলাম:
+
+
+<div class="mt-4">
+    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Split Among (Who consumed?)</label>
+    <div class="space-y-2 max-h-40 overflow-y-auto border p-2 rounded-lg">
+        @foreach($group->members as $index => $member)
+            <div class="flex items-center">
+                <input type="hidden" name="members[{{ $index }}][member_id]" value="{{ $member->id }}">
+                
+                <input type="checkbox" 
+                       name="members[{{ $index }}][participated]" 
+                       value="1" 
+                       id="member_{{ $member->id }}"
+                       class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" checked>
+                
+                <label for="member_{{ $member->id }}" class="ml-2 text-sm text-gray-900 dark:text-gray-100">
+                    {{ $member->display_name }}
+                </label>
+            </div>
+        @endforeach
+    </div>
+    <p class="text-xs text-gray-500 mt-1">* Uncheck members who didn't share this expense.</p>
+</div>
+
+
+২. Controller-এ পরিবর্তন (Logic Implementation)
+​এখন GroupExpenseController.php তে দুটি ফাংশন আপডেট করতে হবে।
+​ক. addTransaction ফাংশন (খরচ সেভ করার লজিক)
+​এখানে আমরা দেখব কতজন participated চেকবক্সে টিক দিয়েছে, মোট টাকাকে তত দিয়ে ভাগ করব।
+
+public function addTransaction(Request $request, $groupId)
+{
+    // ... (তোমার আগের ভ্যালিডেশন কোড ঠিক আছে) ...
+
+    try {
+        DB::beginTransaction();
+
+        // ১. মেইন ট্রানজ্যাকশন টেবিল এ এন্ট্রি
+        $transaction = GroupTransaction::create([
+            'group_id' => $groupId,
+            'paid_by_member_id' => $request->paid_by_member_id, // যে টাকা দিয়েছে (Cash Out)
+            'total_amount' => $request->total_amount,
+            'description' => $request->description,
+            'date' => $request->date,
+            'status' => 'unpaid' // বা settle না হওয়া পর্যন্ত unpaid
+        ]);
+
+        // ২. কতজন এই খরচে অংশ নিয়েছে (Checkbox Checked)
+        // আমরা শুধু তাদেরই কাউন্ট করব যাদের participated = 1
+        $participatingMembers = collect($request->members)->filter(function ($member) {
+            return isset($member['participated']) && $member['participated'] == 1;
+        });
+
+        $count = $participatingMembers->count();
+
+        if ($count > 0) {
+            // ৩. মাথাপিছু খরচ বের করা (Per Head Cost)
+            $perHeadCost = $request->total_amount / $count;
+
+            // ৪. মেম্বারদের ডাটাবেসে সেভ করা
+            foreach ($request->members as $memberData) {
+                // কেউ যদি অংশ নেয়, তার খরচ = perHeadCost, না নিলে 0
+                $isParticipating = isset($memberData['participated']) && $memberData['participated'] == 1;
+                $shareAmount = $isParticipating ? $perHeadCost : 0;
+
+                GroupTransactionMember::create([
+                    'group_transaction_id' => $transaction->id,
+                    'member_id' => $memberData['member_id'],
+                    'amount_owed' => $shareAmount, // এটাই তার আসল খরচ (Consumed Value)
+                    'participated' => $isParticipating
+                ]);
+            }
+        }
+
+        DB::commit();
+        return response()->json(['success' => true, 'message' => 'Transaction added successfully']);
+
+    } catch (\Exception $e) {
+        DB::rollBack();
+        return response()->json(['success' => false, 'message' => $e->getMessage()], 500);
+    }
+}
+
+
+খ. calculateBalanceSheet ফাংশন (কে পাবে, কে দেবে)
+তোমার কোডে এই ফাংশনটি মিসিং ছিল। এটাই মেসের আসল হিসাব বের করে।
+
+private function calculateBalanceSheet($group, $currencyService, $userCurrency)
+{
+    $balances = [];
+
+    // ১. সব মেম্বারদের লুপ করা
+    foreach ($group->members as $member) {
+        
+        // A. Total Paid: এই মেম্বার পকেট থেকে কত টাকা খরচ করেছে (বাজার করেছে)
+        $totalPaid = $group->transactions()
+            ->where('paid_by_member_id', $member->id)
+            ->sum('total_amount');
+
+        // B. Total Share: এই মেম্বার আসলে কত টাকার জিনিস ভোগ করেছে (খেয়েছে)
+        // এখানে আমরা GroupTransactionMember টেবিল থেকে 'amount_owed' যোগ করব
+        $totalShare = GroupTransactionMember::where('member_id', $member->id)
+            ->whereHas('transaction', function($q) use ($group) {
+                $q->where('group_id', $group->id);
+            })
+            ->sum('amount_owed');
+
+        // C. Net Balance Calculation
+        // পজেটিভ (+) মানে সে টাকা পাবে। নেগেটিভ (-) মানে তাকে টাকা দিতে হবে।
+        $netBalance = $totalPaid - $totalShare;
+
+        $balances[] = [
+            'member_id' => $member->id,
+            'name' => $member->display_name,
+            'picture' => $member->profile_picture,
+            'total_paid' => $totalPaid,
+            'total_share' => $totalShare,
+            'net_balance' => $netBalance,
+            // স্ট্যাটাস টেক্সট (View তে দেখানোর জন্য)
+            'status' => $netBalance > 0 ? 'Gets Back' : ($netBalance < 0 ? 'Owes' : 'Settled')
+        ];
+    }
+
+    // ব্যালেন্স অনুযায়ী সর্ট করা (যারা পাবে তারা উপরে থাকবে)
+    return collect($balances)->sortByDesc('net_balance')->values()->all();
+}
+
+
+৩. সারাংশ (Summary)
+​তোমার প্রজেক্টে এই পরিবর্তনগুলো করলে যেটা হবে:
+​ইনপুট: যখন বাজার এন্ট্রি হবে, তুমি সিলেক্ট করতে পারবে কে কে খেয়েছে (Checkbox)।
+​প্রসেসিং: addTransaction অটোমেটিক্যালি মোট টাকাকে শুধুমাত্র অংশগ্রহণকারীদের (Participating members) সংখ্যা দিয়ে ভাগ করে ডাটাবেসে রাখবে।
+​আউটপুট: calculateBalanceSheet ফাংশনটি (টাকা দেওয়া - খাওয়া খরচ) সূত্র ব্যবহার করে দেখাবে কে টাকা পাবে আর কে দেবে। 
+​তোমার dashboard.blade.php তে যেখানে balanceSheet ভেরিয়েবল পাস হচ্ছে, সেখানে তুমি লুপ চালিয়ে net_balance দেখিয়ে দিলেই কাজ শেষ!
+
+
