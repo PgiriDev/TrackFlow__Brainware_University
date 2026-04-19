@@ -23,8 +23,8 @@
     <img src="https://img.shields.io/badge/Quick%20Start-Ready-10b981?style=for-the-badge&logo=rocket&logoColor=white" />
   </a>
 
- <a href="https://github.com/PgiriDev/TrackFlow_Brainware_University">
-  <img src="https://img.shields.io/github/stars/PgiriDev/TrackFlow_Brainware_University?style=for-the-badge" />
+ <a href="https://github.com/PgiriDev/TrackFlow__Brainware_University">
+  <img src="https://img.shields.io/github/stars/PgiriDev/TrackFlow__Brainware_University?style=for-the-badge" />
 </a>
 <img src="https://img.shields.io/github/last-commit/PgiriDev/TrackFlow__Brainware_University?style=for-the-badge" />
 
