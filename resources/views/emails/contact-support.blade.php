@@ -30,6 +30,13 @@
             text-align: center;
         }
 
+        .logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            display: block;
+        }
+
         .header h1 {
             margin: 0;
             font-size: 24px;
@@ -130,6 +137,9 @@
 <body>
     <div class="container">
         <div class="header">
+            @if(config('mail.logo_url'))
+                <img src="{{ config('mail.logo_url') }}" alt="TrackFlow Logo" class="logo" />
+            @endif
             <h1>📬 New Support Message</h1>
             <p>A user has submitted a contact form on TrackFlow</p>
         </div>

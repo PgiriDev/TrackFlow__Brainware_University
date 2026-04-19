@@ -115,4 +115,17 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Email Logo URL
+    |--------------------------------------------------------------------------
+    |
+    | This option controls the logo URL that appears in email headers.
+    | Set it to your hosted logo URL for production.
+    | For local development, use localhost URL.
+    |
+    */
+
+    'logo_url' => env('MAIL_LOGO_URL'),
+
 ];

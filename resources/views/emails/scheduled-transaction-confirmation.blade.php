@@ -30,6 +30,13 @@
             text-align: center;
         }
 
+        .logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            display: block;
+        }
+
         .header-icon {
             width: 60px;
             height: 60px;
@@ -193,8 +200,9 @@
 
 <body>
     <div class="container">
-        <div class="header">
-            <div class="header-icon">📅</div>
+        <div class="header">            @if(config('mail.logo_url'))
+                <img src="{{ config('mail.logo_url') }}" alt="TrackFlow Logo" class="logo" />
+            @endif            <div class="header-icon">📅</div>
             <h1>Transaction Scheduled!</h1>
             <p>Your transaction has been scheduled successfully</p>
         </div>
