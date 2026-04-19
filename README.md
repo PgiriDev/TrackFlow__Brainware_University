@@ -79,6 +79,30 @@ It combines daily transaction tracking with budgeting, goals, reports, group exp
 
 ---
 
+## PWA App Experience
+
+TrackFlow works as an installable Progressive Web App (PWA), so users can use it like a native app from home screen.
+
+### What users get
+- Install prompt on supported browsers.
+- Standalone app-like experience after installation.
+- Faster revisit experience with cached static assets.
+- Offline fallback support when the network is unavailable.
+
+### How to install
+1. Open TrackFlow in Chrome, Edge, or a PWA-supported mobile browser.
+2. Click the Install App prompt or browser install icon.
+3. Confirm installation to add TrackFlow to your device home screen.
+4. Launch directly as an app without opening a browser tab.
+
+### Technical implementation
+- Web App Manifest: `public/manifest.webmanifest`
+- Service Worker: `public/sw.js`
+- Install Script: `public/js/pwa-install.js`
+- Offline Fallback Page: `public/offline.html`
+
+---
+
 ## Visual Showcase
 
 The visuals below are reused from the landing page modules.
