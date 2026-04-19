@@ -38,7 +38,7 @@
 <table>
   <tr>
     <td width="50%" valign="top">
-      <h3><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f4b8/512.gif" width="30" align="absmiddle" /> Expense Management</h3>
+      <h3><img src="https://img.icons8.com/fluency/48/money.png" width="30" align="absmiddle" /> Expense Management</h3>
       <ul>
         <li>Add, edit, categorize, and search transactions instantly.</li>
         <li>Track inflow and outflow with clean historical records.</li>
@@ -46,7 +46,7 @@
       </ul>
     </td>
     <td width="50%" valign="top">
-      <h3><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f4b0/512.gif" width="30" align="absmiddle" /> Budget Planning</h3>
+      <h3><img src="https://img.icons8.com/fluency/48/ledger.png" width="30" align="absmiddle" /> Budget Planning</h3>
       <ul>
         <li>Create monthly or custom timeframe budgets.</li>
         <li>Define budget items and monitor spent vs. remaining.</li>
@@ -56,7 +56,7 @@
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h3><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f3af/512.gif" width="30" align="absmiddle" /> Financial Goals</h3>
+      <h3><img src="https://img.icons8.com/fluency/48/goal.png" width="30" align="absmiddle" /> Financial Goals</h3>
       <ul>
         <li>Create savings goals with target amounts and timelines.</li>
         <li>Track progress automatically.</li>
@@ -64,7 +64,7 @@
       </ul>
     </td>
     <td width="50%" valign="top">
-      <h3><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f4ca/512.gif" width="30" align="absmiddle" /> Reports & Analytics</h3>
+      <h3><img src="https://img.icons8.com/fluency/48/graph-report.png" width="30" align="absmiddle" /> Reports & Analytics</h3>
       <ul>
         <li>Analyze financial performance with interactive charts.</li>
         <li>Review category-wise and period-wise spending behavior.</li>
@@ -74,7 +74,7 @@
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h3><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f465/512.gif" width="30" align="absmiddle" /> Group Expense Workflow</h3>
+      <h3><img src="https://img.icons8.com/fluency/48/group.png" width="30" align="absmiddle" /> Group Expense Workflow</h3>
       <ul>
         <li>Manage shared spending effortlessly.</li>
         <li>Track requests, payments, and settlement statuses.</li>
@@ -82,7 +82,7 @@
       </ul>
     </td>
     <td width="50%" valign="top">
-      <h3><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f510/512.gif" width="30" align="absmiddle" /> Auth & Security</h3>
+      <h3><img src="https://img.icons8.com/fluency/48/privacy.png" width="30" align="absmiddle" /> Auth & Security</h3>
       <ul>
         <li>Frictionless Google OAuth login support.</li>
         <li>Optional 2FA support for premium security.</li>
@@ -170,7 +170,6 @@ php artisan migrate
 # 5. Build frontend assets and start server
 npm run build
 php artisan serve
-
 
 Open http://127.0.0.1:8000 in your browser.
 
