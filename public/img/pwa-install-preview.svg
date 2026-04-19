@@ -1,79 +1,101 @@
 <svg width="1200" height="680" viewBox="0 0 1200 680" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="680" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0F172A"/>
-      <stop offset="1" stop-color="#1E293B"/>
+      <stop offset="0" stop-color="#0f0c29"/>
+      <stop offset="0.52" stop-color="#302b63"/>
+      <stop offset="1" stop-color="#24243e"/>
     </linearGradient>
-    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#111827"/>
-      <stop offset="1" stop-color="#0B1220"/>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#15182f"/>
+      <stop offset="1" stop-color="#232447"/>
     </linearGradient>
-    <filter id="shadow" x="0" y="0" width="1200" height="680" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feDropShadow dx="0" dy="20" stdDeviation="18" flood-color="#000" flood-opacity="0.4"/>
+    <linearGradient id="sheet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101a3a"/>
+      <stop offset="1" stop-color="#07122a"/>
+    </linearGradient>
+    <linearGradient id="button" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#667eea"/>
+      <stop offset="1" stop-color="#764ba2"/>
+    </linearGradient>
+    <filter id="glow" x="0" y="0" width="1200" height="680" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="0" stdDeviation="22" flood-color="#667eea" flood-opacity="0.35"/>
+    </filter>
+    <filter id="softShadow" x="0" y="0" width="1200" height="680" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#020617" flood-opacity="0.45"/>
     </filter>
     <style>
-      .fade {
-        animation: fadeInOut 3.8s ease-in-out infinite;
+      .float {
+        animation: float 4.6s ease-in-out infinite;
         transform-origin: center;
       }
-      .pulse {
-        animation: pulse 2s ease-in-out infinite;
+      .sheetUp {
+        animation: sheetUp 4.6s ease-in-out infinite;
+      }
+      .hoverPulse {
+        animation: hoverPulse 1.6s ease-in-out infinite;
         transform-origin: center;
       }
-      .slide {
-        animation: slideUp 3.8s ease-in-out infinite;
+      .tapRing {
+        animation: tapRing 2.2s ease-in-out infinite;
+        transform-origin: center;
       }
-      @keyframes fadeInOut {
-        0%, 12% { opacity: 0; }
-        20%, 72% { opacity: 1; }
-        100% { opacity: 0; }
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
       }
-      @keyframes pulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.03); }
+      @keyframes sheetUp {
+        0%, 10% { transform: translateY(24px); opacity: 0; }
+        22%, 82% { transform: translateY(0); opacity: 1; }
+        100% { transform: translateY(24px); opacity: 0; }
       }
-      @keyframes slideUp {
-        0%, 10% { transform: translateY(20px); opacity: 0; }
-        20%, 72% { transform: translateY(0); opacity: 1; }
-        100% { transform: translateY(20px); opacity: 0; }
+      @keyframes hoverPulse {
+        0%, 100% { filter: brightness(1); }
+        50% { filter: brightness(1.16); }
+      }
+      @keyframes tapRing {
+        0% { opacity: 0; transform: scale(0.6); }
+        35% { opacity: 0.8; }
+        100% { opacity: 0; transform: scale(1.35); }
       }
     </style>
   </defs>
 
   <rect width="1200" height="680" rx="22" fill="url(#bg)"/>
 
-  <g opacity="0.22">
-    <circle cx="180" cy="120" r="120" fill="#10B981"/>
-    <circle cx="1060" cy="580" r="160" fill="#6366F1"/>
+  <g opacity="0.32">
+    <circle cx="170" cy="120" r="130" fill="#667eea"/>
+    <circle cx="1045" cy="560" r="170" fill="#764ba2"/>
   </g>
 
-  <rect x="80" y="70" width="1040" height="540" rx="18" fill="#0B1220" stroke="#334155"/>
-  <rect x="80" y="70" width="1040" height="52" rx="18" fill="#111827"/>
-  <circle cx="112" cy="96" r="7" fill="#EF4444"/>
-  <circle cx="136" cy="96" r="7" fill="#F59E0B"/>
-  <circle cx="160" cy="96" r="7" fill="#10B981"/>
-  <rect x="210" y="84" width="580" height="24" rx="8" fill="#1F2937"/>
+  <g class="float" filter="url(#softShadow)">
+    <rect x="398" y="66" width="404" height="548" rx="48" fill="#0a0f25" stroke="#7381f5" stroke-opacity="0.45" stroke-width="2"/>
+    <rect x="417" y="88" width="366" height="504" rx="36" fill="url(#screen)"/>
 
-  <rect x="130" y="160" width="520" height="18" rx="6" fill="#334155"/>
-  <rect x="130" y="192" width="460" height="12" rx="6" fill="#1F2937"/>
-  <rect x="130" y="222" width="340" height="12" rx="6" fill="#1F2937"/>
+    <rect x="548" y="76" width="104" height="7" rx="3.5" fill="#1d2547"/>
 
-  <rect x="130" y="270" width="250" height="40" rx="10" fill="#334155"/>
-  <rect x="390" y="270" width="160" height="40" rx="10" fill="#10B981"/>
+    <rect x="448" y="126" width="198" height="18" rx="7" fill="#ffffff" fill-opacity="0.2"/>
+    <rect x="448" y="154" width="290" height="10" rx="5" fill="#ffffff" fill-opacity="0.12"/>
+    <rect x="448" y="172" width="236" height="10" rx="5" fill="#ffffff" fill-opacity="0.12"/>
 
-  <g class="slide" filter="url(#shadow)">
-    <rect x="560" y="330" width="520" height="220" rx="22" fill="url(#card)" stroke="#334155"/>
-    <text x="600" y="382" fill="#E5E7EB" font-family="Segoe UI, Arial, sans-serif" font-size="36" font-weight="700">Install TrackFlow App</text>
-    <text x="600" y="418" fill="#9CA3AF" font-family="Segoe UI, Arial, sans-serif" font-size="24">Add TrackFlow to your home screen</text>
-
-    <rect x="600" y="450" width="440" height="58" rx="14" fill="#14B8A6" class="pulse"/>
-    <text x="745" y="488" fill="#052E2B" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700">Install App</text>
-
-    <circle cx="1038" cy="362" r="16" fill="#1F2937"/>
-    <path d="M1032 356L1044 368M1044 356L1032 368" stroke="#CBD5E1" stroke-width="2.5" stroke-linecap="round"/>
+    <rect x="448" y="210" width="106" height="34" rx="11" fill="#ffffff" fill-opacity="0.08"/>
+    <rect x="564" y="210" width="138" height="34" rx="11" fill="url(#button)" opacity="0.9"/>
+    <text x="608" y="232" fill="#ffffff" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">Subscribe</text>
   </g>
 
-  <g class="fade">
-    <text x="120" y="590" fill="#94A3B8" font-family="Segoe UI, Arial, sans-serif" font-size="20">PWA install prompt preview</text>
+  <g class="sheetUp" filter="url(#glow)">
+    <rect x="450" y="356" width="516" height="214" rx="22" fill="url(#sheet)" stroke="#7c8af9" stroke-opacity="0.28"/>
+    <text x="482" y="398" fill="#ffffff" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="32" font-weight="700">Install TrackFlow App</text>
+    <text x="482" y="432" fill="#d1d5db" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20">Get app-like experience from your home screen.</text>
+
+    <rect x="482" y="462" width="452" height="64" rx="14" fill="url(#button)" class="hoverPulse"/>
+    <text x="650" y="504" fill="#ffffff" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="30" font-weight="700">Install App</text>
+
+    <circle cx="944" cy="388" r="14" fill="#121c3f"/>
+    <path d="M939 383L949 393M949 383L939 393" stroke="#dbe4ff" stroke-width="2.2" stroke-linecap="round"/>
   </g>
+
+  <circle cx="708" cy="494" r="20" fill="#ffffff" opacity="0.18" class="tapRing"/>
+  <circle cx="708" cy="494" r="8" fill="#ffffff" opacity="0.7"/>
+
+  <text x="82" y="635" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20">PWA install prompt preview matching TrackFlow landing theme</text>
 </svg>
