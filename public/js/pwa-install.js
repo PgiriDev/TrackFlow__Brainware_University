@@ -17,16 +17,38 @@
   const installButton = document.getElementById("pwaInstallButton");
   const dismissButton = document.getElementById("pwaDismissButton");
   const iosHelp = document.getElementById("pwaIosHint");
+  const autoHideDelayMs = 10000;
+  let autoHideTimer = null;
 
   if (!container || !installButton || !dismissButton) {
     return;
   }
 
   const hidePrompt = (persist = true) => {
+    if (autoHideTimer) {
+      clearTimeout(autoHideTimer);
+      autoHideTimer = null;
+    }
     container.classList.add("hidden");
     if (persist) {
       localStorage.setItem("pwaPromptDismissed", "1");
     }
+  };
+
+  const showPromptTemporarily = () => {
+    if (localStorage.getItem("pwaPromptDismissed") === "1") {
+      return;
+    }
+
+    container.classList.remove("hidden");
+
+    if (autoHideTimer) {
+      clearTimeout(autoHideTimer);
+    }
+
+    autoHideTimer = window.setTimeout(() => {
+      hidePrompt(false);
+    }, autoHideDelayMs);
   };
 
   if (window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone) {
@@ -44,7 +66,7 @@
   window.addEventListener("beforeinstallprompt", (event) => {
     event.preventDefault();
     deferredPrompt = event;
-    container.classList.remove("hidden");
+    showPromptTemporarily();
   });
 
   installButton.addEventListener("click", async () => {
@@ -52,7 +74,7 @@
       const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent);
       if (isIos && iosHelp) {
         iosHelp.classList.remove("hidden");
-        container.classList.remove("hidden");
+        showPromptTemporarily();
       }
       return;
     }
@@ -79,6 +101,6 @@
   // Let users bring the prompt back from browser console for support cases.
   root.showPwaInstallPrompt = () => {
     localStorage.removeItem("pwaPromptDismissed");
-    container.classList.remove("hidden");
+    showPromptTemporarily();
   };
 })();
