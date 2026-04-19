@@ -106,6 +106,16 @@ TrackFlow isn't just a website; it works as a fully installable **Progressive We
 > **Technical Implementation:**
 > `Web App Manifest` • `Service Worker` • `PWA Install Script` • `Offline Fallback`
 
+### Install as App Preview
+
+<p align="center">
+  <img src="public/img/pwa-install-preview.svg" alt="TrackFlow PWA Install Preview" width="92%" />
+</p>
+
+<p align="center">
+  <em>Users can install TrackFlow directly from the browser prompt and launch it like a native app.</em>
+</p>
+
 ---
 
 ## 💻 Tech Stack
@@ -170,30 +180,47 @@ php artisan migrate
 # 5. Build frontend assets and start server
 npm run build
 php artisan serve
+```
 
-Open http://127.0.0.1:8000 in your browser.
+Open `http://127.0.0.1:8000` in your browser.
 
-⚙️ Production Notes & OAuth Setup
-Production Checklist
-Keep the queue worker running for async jobs.
+---
 
-Enforce HTTPS for OAuth and cookie security.
+## ⚙️ Production Notes and OAuth Setup
 
-Rebuild caches on every deploy:
+### Production Checklist
+- Keep the queue worker running for async jobs.
+- Enforce HTTPS for OAuth and cookie security.
+- Rebuild caches on every deploy:
 
-Bash
+```bash
 php artisan optimize
-Google OAuth Setup
-Callback Route: /auth/google/callback
+```
 
-Add this exact callback URL in your Google Cloud Console OAuth credentials.
+### Google OAuth Setup
+- Callback Route: `/auth/google/callback`
+- Add this exact callback URL in your Google Cloud Console OAuth credentials.
 
-📁 Project Structure
-Plaintext
+---
+
+## 📁 Project Structure
+
+```text
 TrackFlow/
 ├── app/                # Controllers, Models, Services, Jobs
 ├── config/             # App and service configuration
 ├── database/           # Migrations, seeders, factories
-├── public/             # Public assets and images (Manifest, SW)
+├── public/             # Public assets and images (Manifest, Service Worker)
 ├── resources/views/    # Blade views (auth, dashboard, landing)
 └── routes/             # Web and API routes
+```
+
+---
+
+## 📜 License
+
+This project is distributed under the MIT License.
+
+---
+
+<p align="center"><strong>TrackFlow</strong> - Finance clarity for everyday users and teams.</p>
